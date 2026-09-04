@@ -3,8 +3,9 @@
 The part of an Execution Squad that spends money. Outreach costs your time and content costs
 your time. Ads cost money every hour, whether or not anyone replies, so this one starts by
 trying to talk you out of it. If the gate opens, it turns your own price into the most a lead may
-cost you, builds one campaign **paused** inside your own ad account, and prints two numbers and
-a status every Sunday with one change under them.
+cost you, builds one campaign **paused** inside your own ad account, and every Sunday prints two
+numbers and a status, the week's Measure, with one change or a named hold under them, the week's
+Improve.
 
 Nothing it builds is on. You say the word that turns it on.
 
@@ -44,11 +45,17 @@ Four modes, four sentences:
   hook, you open three and look with your own eyes, it writes three concepts and builds the whole
   campaign paused. You pick your phone video off your own disk. Then five minutes in Ads Manager
   by your own hand, Meta's overnight rule and your account spending limit, and then a launch card
-  and a stop, and nothing happens until you say **"Go."**
-- **"Pull my ads read for this week."** The kill line first, then whether the ad set has actually
-  left learning, then cost per lead against your ceiling and cost per client against your
-  pipeline. One change a week, and it tells you every time which moves reset Meta's learning and
-  which do not.
+  and a stop, and nothing happens until you say **"Go."** That is the week's Run, one concept a
+  week: the concept usually Monday and Tuesday, your "Go" from Wednesday, so the ad set is in
+  front of strangers the same week it was cut. Each new concept opens its own ad set beside the
+  ones already running and shares the campaign's daily number, so 2 or 3 live at a time is the
+  ceiling and the weakest finished one gets turned off.
+- **"Pull my ads read for this week."** Sunday, Measure then Improve. The kill line first, then
+  whether each ad set is finished (past 7 days and about 50 events; anything short of that is
+  held, never guessed), then your two numbers, cost per lead against your ceiling and leads, and
+  under them cost per client against your pipeline. Then one change or a named hold. Monday's
+  concept opens its own new ad set either way, and nothing running is ever edited, because an
+  edit sends that ad set back to day one of learning.
 
 Stopped halfway, or closed the laptop? Say **"continue the ads loop"** in a new window. It reads
 what is on disk and picks up at the first thing missing.
@@ -66,7 +73,7 @@ so what it really buys is the read happening on the days you would have skipped 
 
 ## What you get
 
-One money card, one launch file with every id in it, and one log with a row per week that says
+One money card, one launch file per launch with every id in it, and one log with a row per week that says
 what you changed. It never spends, never turns anything on without your word in that same
 message, and never writes a budget you did not say out loud. The account spending limit, the one
 wall Meta enforces against everybody including this skill, is typed by your hand in Ads Manager

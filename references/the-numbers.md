@@ -40,6 +40,12 @@ Read the other way, which is how a founder lives it. **What $100 a day, $700 a w
 | $30 | 23 | 47% |
 | $50 | 14 | 28% |
 
+**Both tables are per ad set, and the daily number is the campaign's.** A second live ad set
+inside that campaign does not get its own $100, it gets a share of the one $100, so every row
+above halves. That is the reason 2 or 3 live ad sets is the ceiling at this budget: past that,
+no ad set collects 50 events in a week and none of them ever leaves learning. The weakest
+finished ad set is turned off, never edited, before a new one opens past that count.
+
 ## 2. The event door, said whole
 
 Print this at the gate, before the money leaves, and again on the money card against the
@@ -51,8 +57,8 @@ founder's own ceiling.
 > cost × 50 ÷ 7, or you accept that this lane reads a direction and never an answer, and you go
 > run outreach, which answers the same question for free.
 
-**$100 a day is a floor, not a promise, and the number does not move.** What moves is the
-sentence next to it. Publishing a $6,000 floor would kill the lane for the founder we sell to,
+**$100 a day is a minimum, not a promise, and the number does not move.** What moves is the
+sentence next to it. Publishing a $6,000 minimum would kill the lane for the founder we sell to,
 and the budget was never the problem. The event is.
 
 ## 3. Cost per lead: the sentence that replaces the table
@@ -67,7 +73,7 @@ The honest line:
 > number I found for this buyer is weak, and the closest thing to a range, $30 to $70 depending
 > on the trade, sits two to five times above the $14 that $100 a day can pay for.
 
-The ceiling comes off the founder's own price. The floor comes off Meta's own arithmetic.
+The ceiling comes off the founder's own price. The minimum comes off Meta's own arithmetic.
 Neither depends on a number a blog made up.
 
 ## 4. The two divisions
