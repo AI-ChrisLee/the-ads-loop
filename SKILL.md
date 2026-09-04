@@ -388,7 +388,8 @@ to day one of learning.
 ## READ · beats 12 to 14
 
 Trigger: "pull my ads read for this week", any Sunday, and any morning for the kill line alone.
-This read runs **before** `/bip sunday`, because the weekly post sums numbers this beat produces.
+This read runs **before** `/bip sunday`, so the week's one change is decided before the founder
+writes the week. `/bip sunday` adds nothing up; it takes the change, not a total.
 
 ### Beat 12 · THE READ
 
