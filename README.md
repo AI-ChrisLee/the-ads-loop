@@ -31,19 +31,29 @@ Then two settings inside that connector's tool list, which take about a minute: 
 turns things on and the tool that changes budgets both go to **request approval**. Leave the rest
 alone. That is your wall, and you can check it in ten seconds.
 
+A second connector makes the ad itself: **Settings, Connectors, Add custom connector, name it
+Higgsfield, `https://mcp.higgsfield.ai/mcp`**, then sign in with your Higgsfield account. A paid
+Higgsfield plan is required; every clip made through a connector charges credits at standard
+rates, and an unlimited plan does not cover it. Skip it and you record each ad on your phone,
+one take.
+
 ## Run it
 
 Four modes, four sentences:
 
 - **"Is my ads gate open?"** Two questions, then the two doors: the money you can lose this month
-  and the arithmetic almost nobody shows you, which is that at $100 a day the only event Meta can
-  finish learning on costs $14 or less. Shut is a real answer and it saves you $3,000.
+  and the arithmetic almost nobody shows you, which is that at $100 a day the only thing you can
+  ask Meta to count, and have it finish learning inside the week, costs $14 or less. Shut is a
+  real answer and it saves you $3,000.
 - **"Write my ads money card."** Your price, minus delivery, divided twice, and you have the most
   a lead may cost you. Then you type the kill line while you are calm, because you will not be
   calm on the day it gets hit.
 - **"Build my ad launch."** It sorts the Ad Library by which advertisers keep running the same
   hook, you open three and look with your own eyes, it writes three concepts and builds the whole
-  campaign paused. You pick your phone video off your own disk. Then five minutes in Ads Manager
+  campaign paused. Then it writes one prompt per concept, a 9:16 clip up to 15 seconds in your own
+  words, says what the credits cost, and on your yes makes each clip through your Higgsfield
+  connector and saves it to your own disk. You pick that file in Meta's picker. No Higgsfield:
+  you record the concept on your phone, one take, and pick that. Then five minutes in Ads Manager
   by your own hand, Meta's overnight rule and your account spending limit, and then a launch card
   and a stop, and nothing happens until you say **"Go."** That is the week's Run, one concept a
   week: the concept usually Monday and Tuesday, your "Go" from Wednesday, so the ad set is in
@@ -73,8 +83,8 @@ so what it really buys is the read happening on the days you would have skipped 
 
 ## What you get
 
-One money card, one launch file per launch with every id in it, and one log with a row per week that says
-what you changed. It never spends, never turns anything on without your word in that same
+One money card, one launch file per launch with every id in it, the ad clips on your own disk,
+and one log with a row per week that says what you changed. It never spends, never turns anything on without your word in that same
 message, and never writes a budget you did not say out loud. The account spending limit, the one
 wall Meta enforces against everybody including this skill, is typed by your hand in Ads Manager
 during the launch, and nothing here ever touches it again.

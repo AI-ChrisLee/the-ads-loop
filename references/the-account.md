@@ -102,15 +102,17 @@ between May and September and names changed inside it, so the catalog is read, n
 `delivery_sub_status` are read per ad set and compared inside the skill; neither can be pushed
 into a filter.
 
-`delivery_sub_status` enum: `LEARNING` ("exploring the best way to deliver your ad set when you
-either create a new ad or ad set or make a significant edit") and `FAIL` (the Delivery column
-reading "Learning limited"). `learning_stage_info` carries the status, the conversions, the
-**last significant edit time**, the exit reason and the attribution windows.
+`delivery_sub_status` enum: `LEARNING` (Meta's own words: "exploring the best way to deliver
+your ad set when you either create a new ad or ad set or make a significant edit", which in the
+founder's words is a big change) and `FAIL` (the Delivery column reading "Learning limited").
+`learning_stage_info` carries the status, the conversions, the **time of the last big change**
+(`last_significant_edit_time`), the exit reason and the windows Meta counts a result inside.
 
 ## 7. Three defaults that decide how the build is written
 
 - **The budget lives on the campaign.** The connector recommends campaign budget and
-  **pre-validates it**: an ad-set budget under a campaign that carries one is rejected outright.
+  **checks it before writing**: an ad-set budget under a campaign that carries one is rejected
+  outright.
 - **Advantage+ Audience is on by default**, and with it age is treated as a suggestion rather
   than a cap. **Location is the only hard lever the founder still holds.** For someone serving
   one city, that is the whole targeting lesson in one sentence.
@@ -137,3 +139,26 @@ The Page's lead terms must be accepted once, by hand: `ads_create_ad_set` needs
 scheduling vendor's own announcement, not Meta's; only two schedulers are live and cal.com, which
 G6 teaches, is not one of them; and global availability is expected October 2026 at the earliest.
 FAQ line, never a workflow step.
+
+## 9. Higgsfield
+
+The ad clip is made through the founder's own Higgsfield connector, at beat 8, on their own
+credits.
+
+> Claude app, Settings, Connectors, Add custom connector, name it Higgsfield,
+> `https://mcp.higgsfield.ai/mcp`, then sign in with the Higgsfield account.
+
+- **The plan rule.** A paid Higgsfield plan is required. Every generation through a connector
+  charges credits at standard rates, and an unlimited plan does not cover it: unlimited
+  generations do not apply through a connector.
+- **The credit rule.** The cost is said in one line before anything is generated, read off the
+  tool's own response or Higgsfield's published rates, never invented, and the founder says yes
+  or no. Read the live tool list every run rather than a tool name written here.
+- **The link expires.** The tool hands back a download link. Download the MP4 the same day into
+  `squad/ads/<date>/ad-N.mp4`; the file on disk is the record, and an expired link means one
+  more generation and one more credit line.
+- **The file never goes on the open internet.** No host, no share link. The founder picks it
+  off their own disk in Meta's picker, the same beat.
+
+No Higgsfield connected: the founder records the concept on their phone, one take, and picks
+that file. Nothing else in the run changes.

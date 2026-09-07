@@ -4,13 +4,15 @@ Every figure in this lane comes from the founder's own price or from Meta's own 
 Nothing here is a benchmark somebody published, because for this buyer nobody published an
 honest one.
 
-## 1. The learning phase, which is the whole story
+## 1. The week Meta spends learning, which is the whole story
 
-An ad set needs roughly **50 optimization events a week** to leave the learning phase. Below
-that, Meta cannot tell signal from noise and the ad set sits in Learning Limited.
+An ad set needs roughly **50 of the thing you ask Meta to count in a week** (Meta's own term:
+an optimization event) to leave what Meta calls the learning phase, the week Meta spends
+learning. Below that, Meta cannot tell signal from noise and the ad set sits in Learning
+Limited.
 
-**Grade it out loud when it matters.** Meta's own page on the learning phase returns a title and
-no body to every fetcher we have, so nobody on this side has read it. What is verified is that
+**Grade it out loud when it matters.** Meta's own page on that week returns a title and no body
+to every fetcher we have, so nobody on this side has read it. What is verified is that
 the 50 per 7 days threshold is still the standard across dated 2026 sources with no reported
 change, and that `delivery_sub_status` and `learning_stage_info` exist in the live field catalog
 exactly as the rule describes. Say "Meta's own page could not be read" rather than pretending it
@@ -51,8 +53,8 @@ finished ad set is turned off, never edited, before a new one opens past that co
 Print this at the gate, before the money leaves, and again on the money card against the
 founder's own ceiling.
 
-> At $100 a day the only event you may optimize for is one that costs $14 or less. For a service
-> founder that is a form fill on Meta, and nothing published anywhere puts a service lead near
+> At $100 a day the only thing you may ask Meta to count is one that costs $14 or less. For a
+> service founder that is a form fill on Meta, and nothing published anywhere puts a service lead near
 > $14. So either your own numbers beat the published ones, or you raise the budget to
 > cost × 50 ÷ 7, or you accept that this lane reads a direction and never an answer, and you go
 > run outreach, which answers the same question for free.
@@ -119,14 +121,15 @@ founder runs lead-objective, so it transfers as a direction, not a threshold.
 
 The fork it settles, and the only one:
 
-- Below the baseline: the first three seconds are the problem, change the hook.
+- Below that average: the first three seconds are the problem, change the hook.
 - At or above it with no leads: people stopped and did not convert, so the problem is the form
   or the offer, which is G5 and G6, not a new ad.
 
 ## 6. Naming a winner
 
-No run names a winner unless the two **Wilson 95 percent intervals do not overlap.** When they
-overlap, print both intervals in words and say the week cannot separate them. Never a decimal,
+No run names a winner unless the two honest ranges, a **Wilson 95 percent interval** around each
+ad's count, **do not overlap.** When they overlap, print both ranges in words and say the week
+cannot separate them. Never a decimal,
 never "ad 2 is winning by 30 percent."
 
 At $100 a day across three ads the weekly lead counts are single digits, so they always overlap.
@@ -142,6 +145,6 @@ you, spent, with nothing to show.** That is a threshold on one ad's own numbers.
 | A hook-rate pass mark of any number | See section 5 |
 | A kill rule built on cost per lead | Undefined on an ad with zero leads, which is the ad it is hunting. Build it on spend |
 | "Three second plays at ad level" | The field does not exist there |
-| "Your squad reads the winners and writes the creative" | The library returns a headline and a link. A human opens three pages and looks |
+| "Your squad reads what the winning ads say" | The library returns a headline and a link. A human opens three pages and looks; the concept and the clip prompt are written only from what the founder reported |
 | "The numbers get read every day" or "A/B tests run on their own" | Neither is true at this volume, and the read happens when the founder types |
 | "Growing while you sleep," said about our half | The overnight half is Meta's own Automated Rules engine, free and first party. Say so |

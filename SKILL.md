@@ -1,6 +1,6 @@
 ---
 name: the-ads-loop
-description: Use this when the founder is about to put money into Meta ads, or already has money running. They say "is my ads gate open", "should I run ads", "write my ads money card", "what can a lead cost me", "build my ad launch", "go", "pull my ads read for this week", "log this week's ads decision", or "continue the ads loop" (picking a stopped run back up). It decides whether ads are the right lane at all, turns the founder's own price into the most a lead may cost, builds one campaign paused inside their own ad account, and prints two numbers and a status with one change, or a named hold, under them. Everything it builds is paused, and the founder says the word that turns it on.
+description: Use this when the founder is about to put money into Meta ads, or already has money running. They say "is my ads gate open", "should I run ads", "write my ads money card", "what can a lead cost me", "build my ad launch", "go", "pull my ads read for this week", "log this week's ads decision", or "continue the ads loop" (picking a stopped run back up). It decides whether ads are the right lane at all, turns the founder's own price into the most a lead may cost, makes each ad clip through the founder's own Higgsfield connector after the credit cost is said and they say yes (or the founder records it on their phone), builds one campaign paused inside their own ad account, and prints two numbers and a status with one change, or a named hold, under them. Everything it builds is paused, and the founder says the word that turns it on.
 ---
 
 # The Ads Loop
@@ -9,8 +9,8 @@ Outreach spends time. Ads spend money every hour, replies or no replies. **Your 
 line: hold the gate shut until both doors clear, turn the founder's own price into the most a
 lead may cost, build one campaign paused in their account, and print two numbers and a status
 with one change, or a named hold, under them.** The founder's part: four numbers, three links
-they open with their own eyes, one video they pick off their own disk, and the word that turns
-it on.
+they open with their own eyes, a yes to the credit cost before each ad is made, the file they
+pick off their own disk, and the word that turns it on.
 
 **You never spend.** Every campaign, ad set and ad you create is created paused, which is the
 create tools' own default. You never call `ads_activate_entity` without the founder's word in
@@ -74,7 +74,7 @@ wins, measure the results, improve what won.
 | 5 THE THREE LINKS | HUMAN INPUT: the founder opens three ads and says what they actually say |
 | 6 THE CONCEPTS | AUTO: three ad concepts off what they reported and the message that got closest to money |
 | 7 THE BUILD, PAUSED | AUTO: campaign, ad set, three ads, all created paused |
-| 8 THE VIDEO | HUMAN INPUT: the picker opens, the founder chooses the file |
+| 8 THE AD, MADE | AUTO: the live Higgsfield tool list, one prompt per concept, the model named, then **STOP · GATE: the credit cost in one line, yes or no**. AUTO on the yes: generate, download the same day into `squad/ads/<date>/ad-N.mp4`. Then HUMAN INPUT: the picker opens, the founder chooses that file. No Higgsfield: their phone, one take |
 | 9 THE OVERNIGHT RULE, AND THE WALL | HUMAN INPUT: Meta's rule and the account spending limit, five minutes in Ads Manager, by their hand, confirmed in words |
 | 10 THE LAUNCH CARD | AUTO print, then **STOP · GATE: go, change one thing, or kill it and mine again** |
 | 11 GO | AUTO on the word only: campaign, then ad set, then ads, in that order |
@@ -100,7 +100,8 @@ order and continue at the first one missing or incomplete.
 | the newest launch file has no `## THE MINE` | beat 4 |
 | `## THE MINE` is written and `## THE CONCEPTS` is empty | beat 5 |
 | the newest launch file has no `## THE BUILD` block naming three ad ids | beat 7 |
-| `## THE BUILD` names three ads and `## THE VIDEO` is empty | beat 8 |
+| `## THE BUILD` names three ads and `## THE AD` is empty, or carries prompts with no yes and no `none` | beat 8, the credit gate |
+| `## THE AD` carries prompts and a yes, and a file it names is not on disk | beat 8, the download only: a link that expired means one more generation, and it faces the credit gate again |
 | the launch file has no `## THE OVERNIGHT RULE` line reading `set <date>`, or no `## THE SPENDING LIMIT` line | beat 9, and only the half that is missing |
 | the launch file carries no `launched <date>` stamp | beat 10 |
 | a campaign is live and `squad/ads-log.md` has no row for the week just ended | beat 12 |
@@ -110,19 +111,23 @@ Never rebuild a campaign that already has ids on disk. Never regrade a week whos
 written. A budget the founder typed once is not a budget they typed today, and neither is a `go`:
 a resumed run still stops at beat 10.
 
-## The outputs (4 files, every run)
+## The outputs (4 files, every run, and the ad clips)
 
 1. `squad/ads-money-card.md`: the price, the two divisions, the lead ceiling, the daily number,
    the payback answer, the kill line. Beat 2, edited in place when the price moves.
-2. `squad/ads-launch-<date>.md`: the mine, the three concepts, the build with every id, the
-   video, the overnight rule, the spending limit, the launch card, and the `launched <date>`
-   stamp. Beats 4 to 11. One per launch, and there is one launch a week: the concept named in
-   that week's Run cell.
+2. `squad/ads-launch-<date>.md`: the mine, the three concepts, the build with every id, the ad
+   (the prompt, the model, the credit cost and the yes, and the file each ad carries), the
+   overnight rule, the spending limit, the launch card, and the `launched <date>` stamp. Beats
+   4 to 11. One per launch, and there is one launch a week: the concept named in that week's
+   Run cell.
 3. `squad/ads-log.md`: one row per week, the header line first when the file is new. Beat 13.
 4. `.claude/squad-roots.md`: the `ads gate` row, written at beat 1. Nothing else in it touched.
+5. `squad/ads/<date>/ad-N.mp4`: the clip Higgsfield made for concept N, downloaded the same day.
+   Beat 8, launch only, and only when Higgsfield is connected. The file on disk is the record;
+   the link it came from expires.
 
-Nothing else gets written. Never `squad/business.md`, never `squad/pipeline.md`, never a
-creative file, never an experiment, never a calendar event, never a second card.
+Nothing else gets written. Never `squad/business.md`, never `squad/pipeline.md`, never an
+experiment, never a calendar event, never a second card.
 
 ## Beat 0 · THE ACCOUNT
 
@@ -181,15 +186,16 @@ file does not exist, say so in one line and carry on; the gate does not need it.
   that the money door has no price to sit against, point at G5's Winning Offer, and stop.
 - **The event door** is arithmetic and it is the one nobody tells them. Turn the monthly number
   they just gave into a week first, and show the working: monthly divided by 30 is the daily,
-  times 7 is the weekly. An ad set needs roughly 50 optimization events a week to leave the
-  learning phase, so that weekly number divided by 50 is what one event has to cost for Meta to
-  finish learning inside the week. $3,000 a month is $100 a day, $700 a week, so $14. Nothing
-  published anywhere puts a service lead near $14.
+  times 7 is the weekly. An ad set needs roughly 50 of the thing you ask Meta to count (a form
+  fill, for a service founder) inside a week before it leaves what Meta calls the learning
+  phase, the week Meta spends learning. So that weekly number divided by 50 is what one of them
+  has to cost for Meta to finish learning inside the week. $3,000 a month is $100 a day, $700 a
+  week, so $14. Nothing published anywhere puts a service lead near $14.
 
 Say it whole, in these words or close to them:
 
-> At $100 a day the only event you may optimize for is one that costs $14 or less. For a service
-> founder that is a form fill on Meta. Either your own numbers beat every published one, or you
+> At $100 a day the only thing you may ask Meta to count is one that costs $14 or less. For a
+> service founder that is a form fill on Meta. Either your own numbers beat every published one, or you
 > raise the budget to cost times 50 divided by 7, or you accept that this lane reads a direction
 > and never an answer, and you go run outreach, which answers the same question for free.
 
@@ -213,7 +219,7 @@ into `.claude/squad-roots.md`:
 ```
 
 `shut` is a finished, useful answer, and it ends the run: no card, no launch, nothing else on
-disk. Say what would open it (a higher price, a cheaper event, or money that is not rent) and
+disk. Say what would open it (a higher price, a cheaper thing to count, or money that is not rent) and
 send them back to outreach.
 
 ## Beat 2 · THE MONEY CARD
@@ -234,8 +240,9 @@ Trigger: "write my ads money card", "what can a lead cost me". The gate row must
   software, where the product ships itself and nobody does the work.
 - Divided by leads per close: the ceiling on one lead. A wall, never a target.
 - The daily number, $100, and what it buys at that ceiling in leads per day.
-- **The event door again, now against their own ceiling.** Weekly budget divided by 50 is the
-  event cost that clears learning. Print their ceiling next to it and say which is smaller. A
+- **The event door again, now against their own ceiling.** Weekly budget divided by 50 is what
+  the thing you ask Meta to count may cost and still finish the week Meta spends learning.
+  Print their ceiling next to it and say which is smaller. A
   ceiling above $14 does not make the arithmetic go away; it means their price is carrying them.
 - The payback question, answered yes or no: in the first 30 days, does what a client pays cover
   twice what he cost to get and to serve? No means spend slowly.
@@ -331,19 +338,45 @@ AUTO, and everything here is created paused by the tools' own default.
 Write every id into `## THE BUILD` as you go: account, campaign, ad set, the three ads, the
 budget, the geo, the objective, the optimization goal.
 
-### Beat 8 · THE VIDEO
+### Beat 8 · THE AD, MADE
 
-HUMAN INPUT, and the founder's hand is in this step no matter what.
-`ads_creative_upload_media` with `upload_source: LOCAL_FILE` opens Meta's own picker so they
-choose the file off their own device. Say that, then wait. JPEG, PNG, GIF, MP4 and MOV.
+AUTO first, then a STOP, then the founder's hand. Each of the three concepts becomes one clip,
+made through the founder's own Higgsfield connector, on their own credits, after they say yes.
+
+**Check the connector first.** Read the live Higgsfield tool list rather than trusting a tool
+name written here. No Higgsfield connected: say so in one line, print the click path from
+`references/the-account.md` section 9 (Claude app, Settings, Connectors, Add custom connector,
+name it Higgsfield, `https://mcp.higgsfield.ai/mcp`, sign in with their Higgsfield account),
+and give the fallback in one line: the founder records the concept on their phone, one take,
+and picks that file below. Nothing else changes.
+
+**One prompt per concept**, written into `## THE AD` before anything is generated: a 9:16 clip,
+up to 15 seconds, in the founder's own words from the concept. One person, one claim, the
+buyer's world, spoken to camera or shown. No guarantee, and nothing that is not on the money
+card or in the offer document. Name the model on each prompt: Seedance 2.0 unless the founder
+names Veo.
+
+**STOP · GATE, before generating.** One line per ad: the credit cost, read off the tool's own
+response or Higgsfield's published rates, never invented, then yes or no. A paid Higgsfield
+plan is required, every generation through a connector charges credits at standard rates, and
+an unlimited plan does not cover it. Generate on the yes, and only the ads they said yes to.
+
+**Download the same day.** The tool hands back a link and the link expires. Save each MP4 into
+`squad/ads/<date>/ad-N.mp4`, N matching the concept, and write which ad carries which file into
+`## THE AD`. The file on disk is the record. It never goes on the open internet: no host, no
+share link.
+
+**Then the founder's hand, no matter what.** `ads_creative_upload_media` with
+`upload_source: LOCAL_FILE` opens Meta's own picker so they choose that file off their own
+device. Say that, then wait. JPEG, PNG, GIF, MP4 and MOV.
 
 **Never ask for a link.** A Drive, Dropbox or Canva share link is rejected when it needs a
 sign-in or hands back a page instead of the file, and asking a founder to make a video public on
 the open internet is a thing this repo does not do. Never ask them to host anything.
 
 No picker appears on their surface: say so plainly, leave the three ads paused with the creative
-they have, and tell them to add the video to those ads by hand in Ads Manager. Do not invent a
-second path. Write which ad carries which file into `## THE VIDEO`, or write "none" there.
+they have, and tell them to add the file to those ads by hand in Ads Manager. Do not invent a
+second path. Write which ad carries which file into `## THE AD`, or write "none" there.
 
 ### Beat 9 · THE OVERNIGHT RULE, AND THE WALL
 
@@ -385,8 +418,8 @@ AUTO print, one screen:
 - which finished ad set goes off with this one, when it would take the count past 3, or "none"
 - the first Sunday it can be read, past 7 days and about 50 events, and the words look, do not
   touch
-- the event door restated against this ad set's own share of the daily number and this
-  campaign's actual optimization event
+- the event door restated against this ad set's own share of the daily number and the thing
+  this campaign actually asks Meta to count
 
 **STOP · GATE.** Three answers allowed, and nothing else counts as consent. Silence is not
 consent, and neither is "looks good".
@@ -410,7 +443,7 @@ set, then the ads, in that order, because activating a parent does not activate 
 Then, only when the card named one, `ads_update_entity` turns off the finished ad set it named.
 Report `PUBLISHING` as in progress, never as live. Stamp `launched <date>` into the file and
 close with one line: leave it alone, the first Sunday it is past 7 days and about 50 events is
-the first read, and every significant edit puts the ad set back to day one of learning.
+the first read, and every big change puts the ad set back to day one of learning.
 
 ## READ · beats 12 to 14
 
@@ -470,8 +503,10 @@ beat 13 records every one of them. The change comes off the FIRST row that misse
 under it are printed to be read and logged, never as a second move.
 
 **Never name a winning ad off a week of leads.** At this budget across three ads the counts are
-single digits, and a winner is named only when two Wilson 95 percent intervals do not overlap.
-Asked which ad won, print both intervals in words, say the week cannot separate them, and say
+single digits, and a winner is named only when the two honest ranges (the range each ad's
+count could honestly mean, given how few there are; `references/the-numbers.md` section 6 says
+how it is drawn) do not overlap. Asked which ad won, print both ranges in
+words, say the week cannot separate them, and say
 what the loop does instead: the losing ad is named by the spend rule, which is a threshold and
 not a comparison.
 
@@ -518,8 +553,8 @@ running. All four true or the answer is no, and you print which one failed.
 
 | # | Condition | Where it is read |
 |---|---|---|
-| 1 | The ad set left the learning phase | `delivery_sub_status` is not `LEARNING`, and `learning_stage_info.status` shows it exited |
-| 2 | Nothing significant changed across the window | `learning_stage_info.last_significant_edit_time` is older than the start of the two weeks |
+| 1 | The ad set finished the week Meta spends learning | `delivery_sub_status` is not `LEARNING`, and `learning_stage_info.status` shows it exited |
+| 2 | No big change across the window | `learning_stage_info.last_significant_edit_time` is older than the start of the two weeks |
 | 3 | Cost per lead at or under the ceiling, two consecutive full weeks | `cost_per_lead` on two `time_range` calls |
 | 4 | At least one client paid, out of this channel | `squad/pipeline.md`, their own row |
 
@@ -557,8 +592,11 @@ and it only ever reads.
 - One change a week, or a named hold. A new ad set opens every week either way, and nothing
   running is ever edited; say so every time. The campaign's daily number is split across the
   live ad sets, so 2 or 3 live is the ceiling at $100 a day.
-- Name a winner only when two Wilson 95 percent intervals do not overlap. When they overlap, say
-  so in words and never with a decimal.
+- Name a winner only when the two honest ranges do not overlap (`references/the-numbers.md` section 6).
+  When they overlap, say so in words and never with a decimal.
+- Never generate an ad clip without the credit cost said in one line and the founder's yes in
+  that turn. Download it the same day; the file on disk is the record, and it never goes on the
+  open internet.
 - Never build an experiment. At this budget a split test is noise on a schedule, and the tool's
   own spec requires an eligibility call this skill does not make.
 - Never drive Ads Manager with a browser tool. Meta's terms forbid automated access to its
