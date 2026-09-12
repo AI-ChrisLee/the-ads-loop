@@ -1,99 +1,55 @@
-# The Ads Loop: install in 60 seconds
+# The Ads Loop
 
-The part of an Execution Squad that spends money. Outreach costs your time and content costs
-your time. Ads cost money every hour, whether or not anyone replies, so this one starts by
-trying to talk you out of it. If the gate opens, it turns your own price into the most a lead may
-cost you, builds one campaign **paused** inside your own ad account, and every Sunday prints two
-numbers and a status, the week's Measure, with one change or a named hold under them, the week's
-Improve.
+This skill is a base. Once you have done it your way, tell your squad "update the skill to do it
+like this."
 
-Nothing it builds is on. You say the word that turns it on.
+The part of an Execution Squad that spends money, so it starts by trying to talk you out of it.
+If the gate opens, it turns your price into the most a lead may cost you and builds one campaign
+paused in your own ad account.
 
 ## What to bring
 
-Your offer document at `squad/business.md`, because the price on it is where your lead ceiling
-comes from. Your pipeline at `squad/pipeline.md`, because Meta cannot see which clients actually
-paid you. Then four numbers only you know: what you can put into this lane in a month without
-touching rent, what delivery costs you per client, how many leads it takes you to close one, and
-the number that stops the spending.
+Your offer document at `squad/business.md`. Your pipeline at `squad/pipeline.md`, which Meta
+cannot see. Then 4 numbers: what you can spend in a month without touching
+rent, what delivery costs per client, how many leads to close one, and the number that
+stops the spending.
 
 ## Install
 
-Drop this whole folder, `references/` included, into `.claude/skills/` in your business folder,
-then quit and reopen Claude Code.
+Drop this whole folder, `references/` included, into `.claude/skills/` and reopen Claude Code.
 
-One connector, and it is added in the Claude app, not at the terminal: **Settings, Connectors,
-Add custom connector, `https://mcp.facebook.com/ads`**, then the Business OAuth. Claude Code
-2.1.46 or later picks it up. No extra subscription beyond the paid seat you already have for
-Claude Code.
+One connector, added in the Claude app, not the terminal: **Settings, Connectors, Add custom
+connector, `https://mcp.facebook.com/ads`**, then the Business login. Then 2 settings in its tool
+list: the tool that turns things on and the tool that changes a budget go to **request approval**.
 
-Then two settings inside that connector's tool list, which take about a minute: the tool that
-turns things on and the tool that changes budgets both go to **request approval**. Leave the rest
-alone. That is your wall, and you can check it in ten seconds.
-
-A second connector makes the ad itself: **Settings, Connectors, Add custom connector, name it
-Higgsfield, `https://mcp.higgsfield.ai/mcp`**, then sign in with your Higgsfield account. A paid
-Higgsfield plan is required; every clip made through a connector charges credits at standard
-rates, and an unlimited plan does not cover it. Skip it and you record each ad on your phone,
-one take.
+A second connector makes the ad: **Add custom connector, name it Higgsfield,
+`https://mcp.higgsfield.ai/mcp`**. A paid plan is required and every clip charges credits. Or
+record each ad on your phone, one take.
 
 ## Run it
 
-Four modes, four sentences:
+- **"Is my ads gate open?"** 2 questions, then one word, open or shut, and the row lands in
+  `.claude/squad-roots.md`.
+- **"Write my ads money card."** 2 questions, then your ceiling, the payback answer, and the kill
+  line you type. It lands at `squad/ads-money-card.md`.
+- **"Build my ad launch."** You open 3 ads and say what each says, say yes to the clips, and set 2
+  things by hand in Ads Manager. The campaign comes back paused, every id in
+  `squad/ads-launch-<date>.md`, the clips in `squad/ads/<date>/`. Nothing runs until you say
+  **"Go."**
+- **"Pull my ads read for this week."** Sunday. The status, 2 numbers, cost per client, then your
+  one change. It lands as one row in `squad/ads-log.md`.
 
-- **"Is my ads gate open?"** Two questions, then the two doors: the money you can lose this month
-  and the arithmetic almost nobody shows you, which is that at $100 a day the only thing you can
-  ask Meta to count, and have it finish learning inside the week, costs $14 or less. Shut is a
-  real answer and it saves you $3,000.
-- **"Write my ads money card."** Your price, minus delivery, divided twice, and you have the most
-  a lead may cost you. Then you type the kill line while you are calm, because you will not be
-  calm on the day it gets hit.
-- **"Build my ad launch."** It sorts the Ad Library by which advertisers keep running the same
-  hook, you open three and look with your own eyes, it writes three concepts and builds the whole
-  campaign paused. Then it writes one prompt per concept, a 9:16 clip up to 15 seconds in your own
-  words, says what the credits cost, and on your yes makes each clip through your Higgsfield
-  connector and saves it to your own disk. You pick that file in Meta's picker. No Higgsfield:
-  you record the concept on your phone, one take, and pick that. Then five minutes in Ads Manager
-  by your own hand, Meta's overnight rule and your account spending limit, and then a launch card
-  and a stop, and nothing happens until you say **"Go."** That is the week's Run, one concept a
-  week: the concept usually Monday and Tuesday, your "Go" from Wednesday, so the ad set is in
-  front of strangers the same week it was cut. Each new concept opens its own ad set beside the
-  ones already running and shares the campaign's daily number, so 2 or 3 live at a time is the
-  ceiling and the weakest finished one gets turned off.
-- **"Pull my ads read for this week."** Sunday, Measure then Improve. The kill line first, then
-  whether each ad set is finished (past 7 days and about 50 events; anything short of that is
-  held, never guessed), then your two numbers, cost per lead against your ceiling and leads, and
-  under them cost per client against your pipeline. Then one change or a named hold. Monday's
-  concept opens its own new ad set either way, and nothing running is ever edited, because an
-  edit sends that ad set back to day one of learning.
-
-Stopped halfway, or closed the laptop? Say **"continue the ads loop"** in a new window. It reads
-what is on disk and picks up at the first thing missing.
-
-## The part that runs while you sleep, and whose it is
-
-Meta's own Automated Rules engine. Free, first party, and it has been there for years. The launch
-prints the exact rule and you click it into Ads Manager once, in five minutes: any ad that has
-spent twice your lead ceiling with nothing to show gets turned off, checked every 30 to 60
-minutes, including at 3am.
-
-Your squad's half is the morning it hands you. The weekly read can be registered as a scheduled
-task once you have run it by hand three times, and that task only runs while your laptop is awake,
-so what it really buys is the read happening on the days you would have skipped it.
+Stopped halfway? Say **"continue the ads loop"** in a new window; it picks up at the first thing
+missing.
 
 ## What you get
 
-One money card, one launch file per launch with every id in it, the ad clips on your own disk,
-and one log with a row per week that says what you changed. It never spends, never turns anything on without your word in that same
-message, and never writes a budget you did not say out loud. The account spending limit, the one
-wall Meta enforces against everybody including this skill, is typed by your hand in Ads Manager
-during the launch, and nothing here ever touches it again.
+It never sends, never spends, and never turns anything on without your word in that same
+message. It never writes a budget you did not say out loud. The account spending limit, the one
+wall Meta enforces against everybody including this skill, is typed by your hand. It will never
+quote you a cost-per-lead benchmark: your ceiling comes off your own price.
 
-And it will never quote you somebody's cost-per-lead benchmark. Nobody publishes an honest one
-for a solo founder selling a service. Your ceiling comes off your own price.
+The one thing that runs without you is Meta's own rule, printed by the launch and clicked in
+once: any ad that spends twice your lead ceiling with nothing to show gets turned off.
 
-## What comes next
-
-The lane that costs time instead of money, for the weeks the gate stays shut. It arrives one
-episode at a time. Subscribe (the link under every episode) and each new part lands in your inbox
-the day its episode goes live.
+The lessons are a1 to a4 at aichrislee.com.
